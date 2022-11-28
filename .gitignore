@@ -78,3 +78,17 @@ fabric.properties
 cmake-build-debug/*
 .idea/*
 .DS_Store
+ALG2_project
+
+# Cmake
+CMakeLists.txt.user
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+Testing
+Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CTestTestfile.cmake
+_deps
