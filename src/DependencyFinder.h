@@ -9,9 +9,11 @@
 class DependencyFinder {
 private:
     Graph* graph;
+    vector<int> result;
 public:
     DependencyFinder(Graph *graph);
-    vector<int>* getDependenciesFor(int number);
+    void findDependenciesFor(int number);
+    vector<int> getResult();
 
 };
 

@@ -14,7 +14,10 @@ int main() {
     }
 
     DependencyFinder finder(dataImporter.getResultGraph());
-    finder.getDependenciesFor(1);
+    finder.findDependenciesFor(1);
+    for (auto e : finder.getResult()) {
+        cout << e << " ";
+    }
 
     return 0;
 }

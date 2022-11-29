@@ -8,13 +8,16 @@ DependencyFinder::DependencyFinder(Graph *graph) {
     this->graph = graph;
 }
 
-vector<int>* DependencyFinder::getDependenciesFor(int number) {
-    printf("%d, ", number);
+void DependencyFinder::findDependenciesFor(int number) {
+    this->result.push_back(number);
 
     GraphNode* node = graph->getNode(number);
 
     for (GraphNode*  parentNode : *node->getParents()) {
-        //printf("Val: %d /", parentNode->getValue());
-        getDependenciesFor(parentNode->getValue());
+        findDependenciesFor(parentNode->getValue());
     }
+}
+
+vector<int> DependencyFinder::getResult() {
+    return this->result;
 }
