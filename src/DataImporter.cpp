@@ -4,6 +4,14 @@
 
 #include "DataImporter.h"
 
+DataImporter::DataImporter() {
+    resultGraph = new Graph();
+}
+
+DataImporter::~DataImporter() {
+    delete resultGraph;
+}
+
 bool DataImporter::readFile(string fileName) {
     ifstream infile(fileName);
 
@@ -34,6 +42,8 @@ bool DataImporter::readFile(string fileName) {
                 cout << "Neplatná hodnota na řádku " << row << "." << endl;
             }
 
+            resultGraph->addEdge(sourceInt, targetInt);
+
             printf("%d -> %d \n", sourceInt, targetInt);
         }
         infile.close();
@@ -42,5 +52,4 @@ bool DataImporter::readFile(string fileName) {
         cout << "Chyba. Nepodařilo se otevřít soubor." << endl;
         return false;
     }
-
 }

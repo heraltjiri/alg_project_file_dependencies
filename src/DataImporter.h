@@ -9,15 +9,20 @@ using namespace std;
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <map>
+#include "Graph.h"
 
 #define DATA_DELIMITER "->"
 
 class DataImporter {
 public:
+    DataImporter();
+    ~DataImporter();
     bool readFile(string fileName);
 
 private:
     bool dataLoaded;
+    Graph* resultGraph;
 };
 
 
