@@ -9,6 +9,12 @@ DependencyFinder::DependencyFinder(Graph *graph) {
 }
 
 void DependencyFinder::findDependenciesFor(int number) {
+
+    // Avoid circular dependency
+    if (find(this->result.begin(), this->result.end(), number) != this->result.end()) {
+        return;
+    }
+
     this->result.push_back(number);
     this->resultReady = false;
 
@@ -28,6 +34,7 @@ vector<int> DependencyFinder::getResult() {
 
 void DependencyFinder::prepareResult() {
     sort( this->result.begin(), this->result.end() );
-    this->result.erase( unique( this->result.begin(), this->result.end() ), this->result.end() );
+    // Unique results
+    //this->result.erase( unique( this->result.begin(), this->result.end() ), this->result.end() );
     this->resultReady = true;
 }
