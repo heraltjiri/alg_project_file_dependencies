@@ -29,4 +29,5 @@ vector<int> DependencyFinder::getResult() {
 void DependencyFinder::prepareResult() {
     sort( this->result.begin(), this->result.end() );
     this->result.erase( unique( this->result.begin(), this->result.end() ), this->result.end() );
+    this->resultReady = true;
 }
