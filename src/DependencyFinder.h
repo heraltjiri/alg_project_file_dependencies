@@ -10,6 +10,8 @@ class DependencyFinder {
 private:
     Graph* graph;
     vector<int> result;
+    bool resultReady = false;
+    void prepareResult();
 public:
     DependencyFinder(Graph *graph);
     void findDependenciesFor(int number);

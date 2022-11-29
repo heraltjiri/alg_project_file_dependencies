@@ -10,6 +10,7 @@ DependencyFinder::DependencyFinder(Graph *graph) {
 
 void DependencyFinder::findDependenciesFor(int number) {
     this->result.push_back(number);
+    this->resultReady = false;
 
     GraphNode* node = graph->getNode(number);
 
@@ -19,5 +20,13 @@ void DependencyFinder::findDependenciesFor(int number) {
 }
 
 vector<int> DependencyFinder::getResult() {
+    if (!this->resultReady) {
+        this->prepareResult();
+    }
     return this->result;
+}
+
+void DependencyFinder::prepareResult() {
+    sort( this->result.begin(), this->result.end() );
+    this->result.erase( unique( this->result.begin(), this->result.end() ), this->result.end() );
 }

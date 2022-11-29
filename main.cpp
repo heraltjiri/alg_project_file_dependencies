@@ -7,6 +7,8 @@ using namespace std;
 
 int main() {
     string inputFile = "data.txt";
+    int dependenciesFor = 10;
+
     DataImporter dataImporter;
 
     if (dataImporter.readFile(inputFile) == false) {
@@ -14,8 +16,11 @@ int main() {
     }
 
     DependencyFinder finder(dataImporter.getResultGraph());
-    finder.findDependenciesFor(1);
+    finder.findDependenciesFor(dependenciesFor);
+
+
     for (auto e : finder.getResult()) {
+
         cout << e << " ";
     }
 
