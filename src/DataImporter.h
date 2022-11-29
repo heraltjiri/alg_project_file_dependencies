@@ -19,6 +19,7 @@ public:
     DataImporter();
     ~DataImporter();
     bool readFile(string fileName);
+    Graph* getResultGraph();
 
 private:
     bool dataLoaded;

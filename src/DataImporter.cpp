@@ -40,6 +40,7 @@ bool DataImporter::readFile(string fileName) {
             }
             catch (const std::exception & e) {
                 cout << "Neplatná hodnota na řádku " << row << "." << endl;
+                return false;
             }
 
             resultGraph->addEdge(sourceInt, targetInt);
@@ -52,4 +53,9 @@ bool DataImporter::readFile(string fileName) {
         cout << "Chyba. Nepodařilo se otevřít soubor." << endl;
         return false;
     }
+    return true;
+}
+
+Graph *DataImporter::getResultGraph() {
+    return resultGraph;
 }

@@ -15,6 +15,8 @@ private:
 public:
     GraphNode(int value);
     void addParent(GraphNode* parent);
+    vector<GraphNode*>* getParents();
+    int getValue();
 };
 
 

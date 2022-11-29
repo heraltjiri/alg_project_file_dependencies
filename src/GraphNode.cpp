@@ -11,3 +11,11 @@ GraphNode::GraphNode(int value) {
 void GraphNode::addParent(GraphNode *parent) {
     parents.push_back(parent);
 }
+
+vector<GraphNode *>* GraphNode::getParents() {
+    return &this->parents;
+}
+
+int GraphNode::getValue() {
+    return value;
+}

@@ -24,7 +24,7 @@ void Graph::addEdge(int source, int target) {
         vertices->insert(pair<int, GraphNode*>(source, sourceNode));
     }
     else {
-        GraphNode* sourceNode = vertices->at(source);
+        sourceNode = vertices->at(source);
     }
 
     // Insert or find target node in graph
@@ -38,5 +38,14 @@ void Graph::addEdge(int source, int target) {
     else {
         GraphNode* targetNode = vertices->at(target);
         targetNode->addParent(sourceNode);
+    }
+}
+
+GraphNode *Graph::getNode(int number) {
+    if (vertices->find(number) == vertices->end()) {
+        return nullptr;
+    }
+    else {
+        return vertices->at(number);
     }
 }

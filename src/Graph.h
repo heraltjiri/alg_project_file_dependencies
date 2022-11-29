@@ -17,6 +17,7 @@ public:
     ~Graph();
     void addVertex(int number);
     void addEdge(int source, int target);
+    GraphNode* getNode(int number);
 };
 
 #endif //ALG2_PROJECT_GRAPH_H
