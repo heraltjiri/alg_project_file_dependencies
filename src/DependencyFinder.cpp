@@ -4,10 +4,18 @@
 
 #include "DependencyFinder.h"
 
+/**
+ * @brief Konstruktor třídy DependencyFinder
+ * @param graph vstupní graf, nad kterým budeme hledat závislosti
+ */
 DependencyFinder::DependencyFinder(Graph *graph) {
     this->graph = graph;
 }
 
+/**
+ * @brief Spustí vyhledávání závislostí nad grafem
+ * @param number Číslo vrcholu, který hledáme
+ */
 void DependencyFinder::findDependenciesFor(int number) {
 
     // Avoid circular dependency
@@ -25,6 +33,10 @@ void DependencyFinder::findDependenciesFor(int number) {
     }
 }
 
+/**
+ * @brief Metoda na vrácení výsledku, pokud je potřeba tak jej seřadí
+ * @return Vrátí seřazený vektor s výsledkem
+ */
 vector<int> DependencyFinder::getResult() {
     if (!this->resultReady) {
         this->prepareResult();
@@ -32,6 +44,9 @@ vector<int> DependencyFinder::getResult() {
     return this->result;
 }
 
+/**
+ * @brief Připraví výsledek na výstup
+ */
 void DependencyFinder::prepareResult() {
     sort( this->result.begin(), this->result.end() );
     // Unique results

@@ -14,6 +14,9 @@ using namespace std;
 
 #define DATA_DELIMITER "->"
 
+/**
+ * @brief Jednoduchá třída starající se o správé naimportování vstupních dat
+ */
 class DataImporter {
 public:
     DataImporter();
@@ -22,7 +25,9 @@ public:
     Graph* getResultGraph();
 
 private:
-    bool dataLoaded;
+    /**
+     * @brief Uchovává výsledný vygenerovaný graf
+     */
     Graph* resultGraph;
 };
 

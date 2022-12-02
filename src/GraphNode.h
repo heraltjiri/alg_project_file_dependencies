@@ -8,9 +8,19 @@
 
 using namespace std;
 
+/**
+ * @brief Jednoduchá třída reprezentující vrchol grafu
+ */
 class GraphNode {
 private:
+    /**
+     * @brief Hodnota vrcholu
+     */
     int value;
+
+    /**
+     * @brief Vazba na rodiče vrcholu
+     */
     vector<GraphNode*> parents;
 public:
     GraphNode(int value);

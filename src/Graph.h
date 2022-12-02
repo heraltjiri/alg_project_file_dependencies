@@ -9,8 +9,14 @@
 
 using namespace std;
 
+/**
+ * @brief Jednoduchá třída reprezentující graf
+ */
 class Graph {
 private:
+    /**
+     * @brief Všechny vrcholy grafu
+     */
     map<int, GraphNode*> *vertices;
 public:
     Graph();

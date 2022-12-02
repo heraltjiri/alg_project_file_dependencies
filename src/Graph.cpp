@@ -8,14 +8,26 @@
 
 using namespace std;
 
+/**
+ * @brief Konstruktor třídy Graph
+ */
 Graph::Graph() {
     vertices = new map<int,GraphNode*>();
 }
+
+/**
+ * @brief Destruktor třídy Graph
+ */
 Graph::~Graph() {
     vertices->clear();
     delete vertices;
 }
 
+/**
+ * @bried Metoda na přidání orientované hrany grafu mezi dvěma vrcholy
+ * @param source První vrchol (ze kterého jde hrana)
+ * @param target Druhý vrchol (do kterého hrana směřuje)
+ */
 void Graph::addEdge(int source, int target) {
     // Insert or find source node in graph
     GraphNode* sourceNode = nullptr;
@@ -41,6 +53,11 @@ void Graph::addEdge(int source, int target) {
     }
 }
 
+/**
+ * @brief Metoda na získání uzlu grafu podle jeho hodnoty
+ * @param number Hodnota vrcholu
+ * @return Vrátí pointer na vrchol grafu pokud existuje, jinak nullptr
+ */
 GraphNode *Graph::getNode(int number) {
     if (vertices->find(number) == vertices->end()) {
         return nullptr;

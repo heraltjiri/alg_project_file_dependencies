@@ -4,14 +4,26 @@
 
 #include "DataImporter.h"
 
+/**
+ * @brief Konstruktor třídy DataImporter
+ */
 DataImporter::DataImporter() {
     resultGraph = new Graph();
 }
 
+/**
+ * @brief Destruktor třídy DataImporter
+ */
 DataImporter::~DataImporter() {
     delete resultGraph;
 }
 
+/**
+ * @brief Načte vstupní textový soubor a uloží data
+ * @param fileName Název (případně cesta) vstupního souboru
+ * @return true Pokud načtení souboru dopadlo v pořádku
+ * @return false Pokud načtení souboru selhalo
+ */
 bool DataImporter::readFile(string fileName) {
     ifstream infile(fileName);
 
@@ -56,6 +68,10 @@ bool DataImporter::readFile(string fileName) {
     return true;
 }
 
+/**
+ * @brief Vrátí výsledné data po načtení souboru
+ * @return Výsledné data po načtení souboru
+ */
 Graph *DataImporter::getResultGraph() {
     return resultGraph;
 }
