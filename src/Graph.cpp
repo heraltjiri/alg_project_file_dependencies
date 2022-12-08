@@ -19,6 +19,9 @@ Graph::Graph() {
  * @brief Destruktor třídy Graph
  */
 Graph::~Graph() {
+    for (auto vertex : *vertices) {
+        delete vertex.second;
+    }
     vertices->clear();
     delete vertices;
 }
