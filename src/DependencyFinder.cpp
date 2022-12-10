@@ -20,6 +20,10 @@ DependencyFinder::DependencyFinder(Graph *graph) {
 void DependencyFinder::findDependenciesFor(int number) {
     GraphNode* node = graph->getNode(number);
 
+    if (node == nullptr) {
+        return;
+    }
+
     if (node->getVisited()) {
         return;
     }
@@ -52,7 +56,15 @@ vector<int> DependencyFinder::getResult() {
  */
 void DependencyFinder::prepareResult() {
     sort( this->result.begin(), this->result.end() );
-    // Unique results
-    //this->result.erase( unique( this->result.begin(), this->result.end() ), this->result.end() );
     this->resultReady = true;
+}
+
+/**
+ * @brief Zjistí, jestli se v grafu vyskytovaly nějaké závislosti nebo ne (výsledek je prázdný)
+ */
+bool DependencyFinder::hasDependencies() {
+    if (this->result.size() == 0) {
+        return false;
+    }
+    return true;
 }

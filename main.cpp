@@ -10,7 +10,6 @@ int main(int argc, char* argv[]) {
     // Kontrola vstupnich parametru
     if (argc < 3) {
         cerr << "Chybny vstup. Pouziti: " << argv[0] << " VSTUPNI_SOUBOT.txt CISLO_ZMENENEHO_SOUBORU" << endl;
-
         return 1;
     }
 
@@ -36,12 +35,21 @@ int main(int argc, char* argv[]) {
     DependencyFinder finder(dataImporter.getResultGraph());
     finder.findDependenciesFor(dependenciesFor);
 
-    // Vypsání výsledku
-    cout << endl << "Závislé soubory: " << endl;
-    for (auto e : finder.getResult()) {
-        cout << e << " ";
+    // Jednoduché vypsání výsledků
+    cout << "====================================================================" << endl;
+    if (finder.hasDependencies()) {
+        // Vypsání výsledku
+        cout << endl << "Závislé soubory: " << endl;
+        for (auto e : finder.getResult()) {
+            cout << e << " ";
+        }
+        cout << endl;
+    }
+    else {
+        cout << endl << "Tento soubor v grafu neexistuje." << endl;
     }
     cout << endl;
+    cout << "====================================================================" << endl;
 
     return 0;
 }

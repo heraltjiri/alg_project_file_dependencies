@@ -31,6 +31,7 @@ public:
     DependencyFinder(Graph *graph);
     void findDependenciesFor(int number);
     vector<int> getResult();
+    bool hasDependencies();
 
 };
 
