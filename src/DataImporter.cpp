@@ -56,8 +56,6 @@ bool DataImporter::readFile(string fileName) {
             }
 
             resultGraph->addEdge(sourceInt, targetInt);
-
-            printf("%d -> %d \n", sourceInt, targetInt);
         }
         infile.close();
     }
