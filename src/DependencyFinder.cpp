@@ -2,6 +2,7 @@
 // Created by Jiří Heralt on 29.11.2022.
 //
 
+#include <algorithm>
 #include "DependencyFinder.h"
 
 /**
