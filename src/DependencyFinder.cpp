@@ -17,17 +17,19 @@ DependencyFinder::DependencyFinder(Graph *graph) {
  * @param number Číslo vrcholu, který hledáme
  */
 void DependencyFinder::findDependenciesFor(int number) {
+    GraphNode* node = graph->getNode(number);
 
-    // Avoid circular dependency
-    if (find(this->result.begin(), this->result.end(), number) != this->result.end()) {
+    if (node->getVisited()) {
         return;
     }
+
+    // Označíme vrchol jako objevený
+    node->setVisited();
 
     this->result.push_back(number);
     this->resultReady = false;
 
-    GraphNode* node = graph->getNode(number);
-
+    // Pokračujeme rekurzivně v průchodu grafem dál, i pro všechny "rodiče" daného vrcholu
     for (GraphNode*  parentNode : *node->getParents()) {
         findDependenciesFor(parentNode->getValue());
     }

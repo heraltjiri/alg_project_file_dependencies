@@ -22,11 +22,18 @@ private:
      * @brief Vazba na rodiče vrcholu
      */
     vector<GraphNode*> parents;
+
+    /**
+     * @brief Určuje jestli byl již tento vrchol navštíven (označování navštívených vrcholů pro průchod grafem)
+     */
+    bool visited = false;
 public:
     GraphNode(int value);
     void addParent(GraphNode* parent);
     vector<GraphNode*>* getParents();
     int getValue();
+    void setVisited(bool visited = true);
+    bool getVisited();
 };
 
 

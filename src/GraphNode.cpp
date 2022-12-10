@@ -35,3 +35,20 @@ vector<GraphNode *>* GraphNode::getParents() {
 int GraphNode::getValue() {
     return value;
 }
+
+
+/**
+ * @bried Metoda na nastavení informace, zda byl daný vrchol již navštívený (pro průchod grafem)
+ */
+void GraphNode::setVisited(bool visited) {
+    this->visited = visited;
+}
+
+
+/**
+ * @bried Metoda na získání informace, zda byl daný vrchol již navštívený
+ * @return Byl vrchol navštívený?
+ */
+bool GraphNode::getVisited() {
+    return visited;
+}
