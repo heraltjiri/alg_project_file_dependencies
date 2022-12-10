@@ -1,7 +1,14 @@
 # Spuštění
 
+## Pomocí cmake
+
 1. V kořenové složce projektu: ``cmake make . && make``
 2. Spuštění pomocí: ``./ALG2_project VSTUPNI_SOUBOR.txt CISLO_ZMENENEHO_SOUBORU``
+
+## Bez použití cmake
+
+1. ``g++ main.cpp src/DataImporter.cpp src/DataImporter.h src/Graph.cpp src/Graph.h src/GraphNode.cpp src/GraphNode.h src/DependencyFinder.cpp src/DependencyFinder.h``
+2. ``./a.out``
 
 # Zadání
 
